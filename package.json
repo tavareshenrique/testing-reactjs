@@ -8,13 +8,21 @@
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
+    ],
+    "moduleNameMapper": {
+      "^~/(.*)": "<rootDir>/src/$1"
+    }
   },
   "browserslist": {
     "production": [
@@ -27,5 +35,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.0",
+    "@testing-library/react": "^9.3.1",
+    "@types/jest": "^24.0.21",
+    "react-app-rewired": "^2.1.4"
   }
 }
